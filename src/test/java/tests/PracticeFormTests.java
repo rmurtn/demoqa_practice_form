@@ -48,7 +48,6 @@ public class PracticeFormTests {
         $("#city").click();
         $(byText("Panipat")).click();
         $("#submit").click();
-
         $(".modal-body").shouldHave(text("Tom Smith"), text("tom@smith.com")
                 , text("1111111111"), text("23 June,1960"), text("Maths, Computer Science")
                 , text("Sports"), text("images.jpeg"), text("111 Alpine St"), text("Haryana Panipat"));
