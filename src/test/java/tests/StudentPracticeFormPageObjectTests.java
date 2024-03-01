@@ -14,7 +14,7 @@ public class StudentPracticeFormPageObjectTests extends TestBase{
                 .setUserEmail("tom@smith.com")
                 .setGender("Male")
                 .setPhoneNumber("1111111111")
-                .setDateOfBirth( "5", "1960")
+                .setDateOfBirth( "1", "9", "1960")
                 .setSubject("Math")
                 .setSubject2("Computer Science")
                 .selectHobby("Sports")
@@ -50,7 +50,7 @@ public class StudentPracticeFormPageObjectTests extends TestBase{
     void fillPracticeFormRequiredFieldsTest() {
         registrationPage.openPage()
                 .setPhoneNumber("1111111111")
-                .setDateOfBirth("5", "1960")
+                .setDateOfBirth("23", "5", "1960")
                 .setSubject("Math")
                 .selectHobby("Sports")
                 .uploadPicture("images.jpeg")

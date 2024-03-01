@@ -19,7 +19,10 @@ public class RegistrationPage {
             subjectInput = $("#subjectsInput"),
             selectHobby = $("#hobbiesWrapper"),
             uploadPicture= $("#uploadPicture"),
-            currentAddress = $("#currentAddress");
+            currentAddress = $("#currentAddress"),
+            selectState = $("#state"),
+            selectCity = $("#city"),
+            submitButton = $("#submit");
 
     CalendarComponent calendarComponent = new CalendarComponent();
     ResultTableComponent resultTableComponent = new ResultTableComponent();
@@ -62,9 +65,9 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage setDateOfBirth(String month, String year) {
+    public RegistrationPage setDateOfBirth(String day, String month, String year) {
         dateOfBirthInput.click();
-        calendarComponent.setDate(month, year);
+        calendarComponent.setDate(day, month, year);
 
         return this;
     }
@@ -99,21 +102,21 @@ public class RegistrationPage {
     }
 
     public RegistrationPage selectState(String value) {
-        $("#state").click();
-        $("#state").$(byText(value)).click();
+        selectState.click();
+        selectState.$(byText(value)).click();
 
         return this;
     }
 
     public RegistrationPage selectCity(String value) {
-        $("#city").click();
-        $("#city").$(byText(value)).click();
+        selectCity.click();
+        selectCity.$(byText(value)).click();
 
         return this;
     }
 
     public RegistrationPage submitButton() {
-        $("#submit").click();
+        submitButton.click();
 
         return this;
     }
@@ -128,22 +131,4 @@ public class RegistrationPage {
 
         return this;
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
