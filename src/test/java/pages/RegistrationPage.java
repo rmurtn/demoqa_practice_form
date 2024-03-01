@@ -126,6 +126,7 @@ public class RegistrationPage {
 
         return this;
     }
+
     public RegistrationPage checkTableVisibility() {
         resultTableComponent.tableVisibility();
 
