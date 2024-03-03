@@ -2,61 +2,81 @@ package tests;
 
 import org.junit.jupiter.api.Test;
 import pages.RegistrationPage;
+import static tests.TestData.*;
+
 public class StudentPracticeFormPageObjectTests extends TestBase{
 
     RegistrationPage registrationPage = new RegistrationPage();
 
+    String firstName = getFirstName(),
+            lastName = getLastName(),
+            userEmail = getEmail(),
+            address = getAddress(),
+            gender = getGender(),
+            phoneNumber = getPhoneNumber(),
+            birthDay = getBirthDay(),
+            birthMonth = getBirthMonth(),
+            birthYear = getBirthYear(),
+            firstSubject = getFirstSubject(),
+            secondSubject = getSecondSubject(),
+            hobby = getHobby(),
+            picture = getPicture(),
+            state = getState(),
+            city = getCity();
+
+
     @Test
     void fillPracticeFormTest() {
         registrationPage.openPage()
-                .setFirstName("Tom")
-                .setLastName("Smith")
-                .setUserEmail("tom@smith.com")
-                .setGender("Male")
-                .setPhoneNumber("1111111111")
-                .setDateOfBirth( "1", "9", "1960")
-                .setSubject("Math")
-                .setSubject2("Computer Science")
-                .selectHobby("Sports")
-                .uploadPicture("images.jpeg")
-                .inputCurrentAddress("111 Alpine St")
-                .selectState("Haryana")
-                .selectCity("Panipat")
+                .setFirstName(firstName)
+                .setLastName(lastName)
+                .setUserEmail(userEmail)
+                .setGender(gender)
+                .setPhoneNumber(phoneNumber)
+                .setDateOfBirth(birthDay, birthMonth, birthYear)
+                .setFirstSubject(firstSubject)
+                .setSecondSubject(secondSubject)
+                .selectHobby(hobby)
+                .uploadPicture(picture)
+                .inputCurrentAddress(address)
+                .selectState(state)
+                .selectCity(city)
                 .submitButton()
-                .checkResults("Tom Smith")
-                .checkResults("tom@smith.com")
-                .checkResults("1111111111")
-                .checkResults("23 June,1960")
-                .checkResults("Maths, Computer Science")
-                .checkResults("Sports")
-                .checkResults("images.jpeg")
-                .checkResults("111 Alpine St")
-                .checkResults("Haryana Panipat");
+                .checkResults(firstName + " " + lastName)
+                .checkResults(userEmail)
+                .checkResults(phoneNumber)
+                .checkResults(birthDay + " " + birthMonth + "," + birthYear)
+                .checkResults(firstSubject + ", " + secondSubject)
+                .checkResults(hobby)
+                .checkResults(picture)
+                .checkResults(address)
+                .checkResults(state + " " + city);
     }
 
     @Test
     void fillPracticeFormMinValuesTest() {
         registrationPage.openPage()
-                .setFirstName("Tom")
-                .setLastName("Smith")
-                .setGender("Male")
-                .setPhoneNumber("1111111111")
+                .setFirstName(firstName)
+                .setLastName(lastName)
+                .setGender(gender)
+                .setPhoneNumber(phoneNumber)
                 .submitButton()
-                .checkResults("Tom Smith")
-                .checkResults("1111111111");
+                .checkResults(firstName + " " + lastName)
+                .checkResults(phoneNumber);
     }
 
     @Test
     void fillPracticeFormRequiredFieldsTest() {
         registrationPage.openPage()
-                .setPhoneNumber("1111111111")
-                .setDateOfBirth("23", "5", "1960")
-                .setSubject("Math")
-                .selectHobby("Sports")
-                .uploadPicture("images.jpeg")
-                .inputCurrentAddress("111 Alpine St")
-                .selectState("Haryana")
-                .selectCity("Panipat")
+                .setPhoneNumber(phoneNumber)
+                .setDateOfBirth(birthDay, birthMonth, birthYear)
+                .setFirstSubject(firstSubject)
+                .setSecondSubject(secondSubject)
+                .selectHobby(hobby)
+                .uploadPicture(picture)
+                .inputCurrentAddress(address)
+                .selectState(state)
+                .selectCity(city)
                 .submitButton()
                 .checkTableVisibility();
     }

@@ -14,8 +14,8 @@ public class CalendarComponent {
     private ElementsCollection selectDay = $$(".react-datepicker__day:not(.react-datepicker__day--outside-month)");
 
     public void setDate(String day, String month, String year) {
-        selectMonth.selectOptionByValue(month);
-        selectYear.selectOptionByValue(year);
+        selectMonth.selectOption(month);
+        selectYear.selectOption(year);
         selectDay.find(Condition.text(day)).click();
     }
 }

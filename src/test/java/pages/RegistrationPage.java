@@ -72,13 +72,13 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage setSubject(String value) {
+    public RegistrationPage setFirstSubject(String value) {
         subjectInput.setValue(value).pressEnter();
 
         return this;
     }
 
-    public RegistrationPage setSubject2(String value) {
+    public RegistrationPage setSecondSubject(String value) {
         subjectInput.setValue(value).pressEnter();
 
         return this;
