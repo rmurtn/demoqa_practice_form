@@ -5,7 +5,8 @@ import com.github.javafaker.Faker;
 public class TestData {
 
     static Faker faker = new Faker();
-    static   String state, city;
+    static String state, city;
+
     public static String getFirstName() {
         return faker.name().firstName();
     }
@@ -40,7 +41,7 @@ public class TestData {
     }
 
     public static String getBirthYear() {
-        return String. valueOf(faker.number().numberBetween(1920, 2023));
+        return String.valueOf(faker.number().numberBetween(1920, 2023));
     }
 
     public static String getFirstSubject() {
@@ -64,24 +65,25 @@ public class TestData {
     public static String getState() {
         return state = faker.options().option("NCR", "Uttar Pradesh", "Haryana", "Rajasthan");
     }
+
     public static String getCity() {
         String cityOfNCRState = faker.options().option("Delhi", "Gurgaon", "Noida");
         String cityOfUttarPradeshState = faker.options().option("Agra", "Lucknow", "Merrut");
         String cityOfHaryanaState = faker.options().option("Karnal", "Panipat");
         String cityOfRajasthanState = faker.options().option("Jaipur", "Jaiselmer");
 
-        switch(state){
+        switch (state) {
             case "NCR":
-                System.out.println(city = cityOfNCRState);
+                city = cityOfNCRState;
                 break;
             case "Uttar Pradesh":
-                System.out.println(city = cityOfUttarPradeshState);
+                city = cityOfUttarPradeshState;
                 break;
             case "Haryana":
-                System.out.println(city = cityOfHaryanaState);
+                city = cityOfHaryanaState;
                 break;
             default:
-                System.out.println(city = cityOfRajasthanState);
+                city = cityOfRajasthanState;
         }
         return city;
     }

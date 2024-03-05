@@ -9,9 +9,9 @@ import static com.codeborne.selenide.Selenide.$$;
 
 public class CalendarComponent {
 
-    private SelenideElement selectMonth = $(".react-datepicker__month-select");
-    private SelenideElement selectYear = $(".react-datepicker__year-select");
-    private ElementsCollection selectDay = $$(".react-datepicker__day:not(.react-datepicker__day--outside-month)");
+    private final SelenideElement selectMonth = $(".react-datepicker__month-select");
+    private final SelenideElement selectYear = $(".react-datepicker__year-select");
+    private final ElementsCollection selectDay = $$(".react-datepicker__day:not(.react-datepicker__day--outside-month)");
 
     public void setDate(String day, String month, String year) {
         selectMonth.selectOption(month);
